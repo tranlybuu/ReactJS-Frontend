@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        Làm việc với JSX
+
+        // Phần I
+        - Xử lý DOM events
+        - Component do chúng ta định nghĩa phải viết in hoa kí tự đầu
+            + Chọn component trong 1 object
+        - Booleans, Null & Undefined không được render
+        - Kết hợp toán tử logic để render theo điều kiện
+
+        // Phần II
+        - Props trong JSX
+            + <YourComponent
+                propName1 = "String literals"
+                propName2 = {expression}
+               />
+            + Props defalult to "true"
+            + Spread/Rest props
+            + Children prop
+                - <YourComponent>String literals</YourComponent>
+                - <YourComponent>{expression}</YourComponent>
+            + Render props
+        
+    -->
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        // // // Phần II - Ý thứ 1&2
+        // function Button({title, primary}) {
+        //     console.log(primary);
+        //     // logic...
+        //     return(
+        //         <button>{title}</button>
+        //     )
+        // }
+        // function App() {
+        //     return (
+        //         <div id="wrapper">
+        //             <Button primary title={"Hello guys!"} />
+        //         </div>
+        //     )
+        // }
+
+        // // // Phần II - Ý thứ 3
+        // // Method 1: Cách làm thông thường
+        // function Input({label, type, placeholder}) {
+        //     return (
+        //         <div>
+        //             <label>{label}</label>
+        //             <input type={type} placeholder={placeholder} />
+        //         </div>
+        //     )
+        // }
+        // // Method 2: Dùng Rest/Spread props
+        // function Input({label, ...inputProps}) {
+        //     return (
+        //         <div>
+        //             <label>{label}</label>
+        //             <input {...inputProps} />
+        //         </div>
+        //     )
+        // }
+        // function App() {
+        //     return (
+        //         <div id="wrapper">
+        //             <Input
+        //                 label="Full name"
+        //                 placeholder="Enter name..."
+        //             />
+        //         </div>
+        //     )
+        // }
+
+        // // // Phần II - Ý thứ 4
+        // function Button({children}) {
+        //     return(
+        //         <button>{children}</button>
+        //     )
+        // }
+        // function App() {
+        //     return (
+        //         <div id="wrapper">
+        //             <Button>Hello guys!</Button>
+        //         </div>
+        //     )
+        // }
+
+        // // // Phần II - Ý thứ 5
+        // // Method 1: Làm thông thường nếu cần in ra giá trị trong list
+        // function List({data}) {
+        //     return(
+        //         <ul>
+        //             {data.map((value, index) =>
+        //                 <li key={index}>{value}</li>
+        //             )}
+        //         </ul>
+        //     )
+        // }
+        // function App() {
+        //     const cars = ['BMW', 'Honda', 'Mazda']
+        //     return (
+        //         <div id="wrapper">
+        //             <List data={cars} />
+        //         </div>
+        //     )
+        // }
+        // // Method 2: Render props
+        // function List({data, children}) {
+        //     return(
+        //         <ul>
+        //             {data.map((item, index) => children(item, index))}
+        //         </ul>
+        //     )
+        // }
+        // function App() {
+        //     const cars = ['BMW', 'Honda', 'Mazda']
+        //     return (
+        //         <div id="wrapper">
+        //             <List data={cars}>
+        //                 {(item, index) => <li key={index}>{item}</li>}
+        //             </List>
+        //         </div>
+        //     )
+        // }
+
+
+        // Index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+</html>
