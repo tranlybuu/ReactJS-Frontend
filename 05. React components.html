@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        +Hooks
+
+        1. React element types: string, function/class
+            - Wrapper
+                + Header
+                + Content
+                + Footer
+        2. Simple display with JSX
+    -->
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // PostItem.js
+        function PostItem() {
+            return (
+                <div className="post-item">
+                    <img 
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" 
+                        alt="image" width="300px"
+                    />
+                    <h2 className='post-title'>Học lập trình với ReactJS</h2>
+                    <p className='post-desc'>Bạn có abcxyz</p>
+                    <p className='post-published'>Một ngày trước</p>
+                </div>
+            )
+        }
+
+        // App.js
+        function App() {
+            return(
+                <div id="wrapper">
+                    <PostItem />
+                </div>
+            )
+        }
+
+        // Index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+</html>

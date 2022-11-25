@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        Props
+
+        - React elements:
+            + Sử dụng props giống như với attribute của thẻ HTML
+            + 2 props class, for => className, htmlFor
+            + Phải tuân theo quy ước có sẵn
+        
+        - React components:
+            + Sử dụng props giống như đối số cho Component
+            + Tự do đặt tên như props
+                - Đặt theo camelCase
+                - Có thể bao gồm gấu gạch ngang
+        
+        - NB:
+            + Prop "key" là prop đặc biệt
+            + Props cơ bản là đối số của Component
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            + Sử dụng destructuring
+    -->
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // PostItem.js
+        function PostItem({
+            image,
+            title,
+            description,
+            publishAt,
+            callback = () => {}     // Đặt giá trị default
+        }) {
+
+            callback()
+
+            return (
+                <div className="post-item">
+                    <img 
+                        src= {image} 
+                        alt= {title} width="300px"
+                    />
+                    <h2 className='post-title'>{title}</h2>
+                    <p className='post-desc'>{description}</p>
+                    <p className='post-published'>{publishAt}</p>
+                </div>
+            )
+        }
+
+        // App.js
+        function App() {
+            return(
+                <div id="wrapper">
+                    <PostItem 
+                        title = "1 -- ReactJS"
+                        image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                        description = "1 -- Bạn có abcxyz. Bạn muốn...."
+                        publishAt = "1 -- Một ngày trước"
+                        callback ={() => {}}
+                    />
+                    <PostItem 
+                        title = "2 -- HTML"
+                        image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                        description = "2 -- Bạn có abcxyz. Bạn muốn...."
+                        publishAt = "2 -- Năm phút trước"
+                    />
+                    <PostItem 
+                        title = "3 -- CSS"
+                        image = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                        description = "3 -- Bạn có abcxyz. Bạn muốn...."
+                        publishAt = "3 -- Hai ngày trước"
+                    />
+                </div>
+            )
+        }
+
+        // Index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+</html>
