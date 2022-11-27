@@ -1,0 +1,12 @@
+.btn {
+    color: blue;
+}
+
+.active {
+    background-color: yellow;
+}
+
+.unactive {
+    color: white;
+    background-color: black;
+}

@@ -1,0 +1,18 @@
+.btn {
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
+
+.active {
+    color: black;
+    background-color: blue;
+}
+
+.unactive {
+    color: white;
+    background-color: black;
+}
